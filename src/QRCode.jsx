@@ -1,6 +1,12 @@
 import React from 'react'
 
 const QRCode = () => {
+  function generateQR(){
+    alert ("Hi")
+  }
+  function downloadQR(name){
+    alert("Welcome "+name)
+  }
   return (
     <div className='app-container'>
         <h1>QR Code Generator</h1>
@@ -16,8 +22,8 @@ const QRCode = () => {
             </label>
             <input type='text' id='sizeinput' 
             placeholder='Enter Image Size'/>
-            <button className='generate-button'>Generate QR Code</button>
-            <button className='download-button'>Download QR Code</button>
+            <button className='generate-button' onClick={generateQR}>Generate QR Code</button>
+            <button className='download-button' onClick={()=>downloadQR("Manojkumar")}>Download QR Code</button>
         </div>
       <p className='footer'>Designed By <a href='https://github.com/Manojkumar-2005'>MANOJKUMAR</a></p>
     </div>
