@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const QRCode = () => {
   const [img,setImg]=useState("");
   const [loading,setLoading]=useState(false);
-  const [qrData,setQrData]=useState("https://github.com/Manojkumar-2005");
+  const [qrData,setQrData]=useState("");
   const [qrSize,setQrSize]=useState(150)
   async function generateQR(){
     setLoading(true);
@@ -39,12 +39,12 @@ const QRCode = () => {
             <label htmlFor='dataInput' className='input-label'>
                 Data for QR Code:
             </label>
-            <input type='text'value={qrData} id='datainput' 
-            placeholder='Enter Data For QR Code' onChange={(e)=>setQrData(e.target.value)}/>
+            <input type='text'value={qrData}  id='datainput' 
+            placeholder='Ex:Chrome.com' onChange={(e)=>setQrData(e.target.value)}/>
             <label htmlFor='sizeInput' className='input-label'>
-                Image Size(e.g.,150):
+                Image Size:
             </label>
-            <input type='text'  id="size" placeholder='(ex:150)' onChange={(e)=>{
+            <input type='text'  id="size" placeholder='Ex:150' onChange={(e)=>{
       setQrSize(Number(e.target.value))
     }}/>
             <button className='generate-button' disabled={loading} onClick={generateQR}>Generate QR Code</button>

@@ -50,6 +50,8 @@ button{
 }   
 .generate-button{
     background-color: #3498db;
+    margin-left: 10px;
+    margin-bottom: 10px;
 
 }
 .generate-button:disabled{
