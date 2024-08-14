@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 
 const QRCode = () => {
   const [img,setImg]=useState("");
-  const [loading,setloading]=useState(false);
+  const [loading,setLoading]=useState(false);
   const [qrData,setQrData]=useState("https://github.com/Manojkumar-2005");
-  const [qrSize,setQrSize]=useState("")
+  const [qrSize,setQrSize]=useState(150)
   async function generateQR(){
-    setloading(true);
+    setLoading(true);
     try{
-      const url=`https://api.qrserver.com/v1/create-qr-code/?size=${qrSize}&data=${encodeURIComponent(qrData)}`;
+      const url=`https://api.qrserver.com/v1/create-qr-code/?size=${qrSize}x${qrSize}&data=${encodeURIComponent(qrData)}`;
       setImg(url);
     }catch(error){
       console.error("error Generating QR Code",error);
     }finally{
-      setloading(false);
+      setLoading(false);
     }
   }
   function downloadQR(){
@@ -44,8 +44,9 @@ const QRCode = () => {
             <label htmlFor='sizeInput' className='input-label'>
                 Image Size(e.g.,150):
             </label>
-            <input type='text' value={qrSize} id='sizeinput' 
-            placeholder='Enter Image Size' onChange={(e)=>setQrSize(e.target.value)}/>
+            <input type='text'  id="size" placeholder='(ex:150)' onChange={(e)=>{
+      setQrSize(Number(e.target.value))
+    }}/>
             <button className='generate-button' disabled={loading} onClick={generateQR}>Generate QR Code</button>
             <button className='download-button'onClick={downloadQR}>Download QR Code</button>
         </div>

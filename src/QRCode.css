@@ -20,8 +20,8 @@
 }
 .qr-code-image{
     padding: 5px;
-    height: 200px;
-    width: 200px;
+    height: auto;
+    width: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .input-label{
